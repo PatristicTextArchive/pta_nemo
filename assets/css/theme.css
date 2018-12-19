@@ -1,0 +1,89 @@
+.edition, .entry-title, .author {
+	font-family: "Noto Serif", serif;
+}
+
+
+#breadcrumb {
+    padding-top:1em;
+    font-size: 0.8em;
+    text-transform: none;
+    font-weight: 600;
+    margin:0 auto;
+}
+
+a {
+  color: #e60000;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #e60111;
+  text-decoration: underline;
+}
+
+
+ul.menu li a {
+    text-transform: none;
+    font-style: italic;
+    font-variant: normal;
+}
+
+.quote {
+    text-transform: none;
+    font-style: italic;
+    font-variant: normal;
+}
+
+.person {
+    text-transform: none;
+    font-weight: bold;
+}
+
+.place {
+    text-transform: none;
+    font-style: normal;
+}
+
+.insertion {
+    text-transform: none;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.number {
+    text-transform: none;
+    font-weight: bold;
+}
+
+.pb {
+    white-space: nowrap;
+    vertical-align: super; 
+    font-size: 80%;
+    color:grey;
+}
+
+.pb:before{content:"|";}
+
+.note {
+    position: relative;
+    display: inline-block;
+   color: #345115;
+    border-bottom: 1px dotted black; 
+}
+
+.note .notetext {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    border: 1px dotted black;	
+    position: absolute;
+    z-index: 1;
+}
+
+.note:hover .notetext {
+    visibility: visible;
+}

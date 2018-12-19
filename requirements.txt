@@ -1,0 +1,4 @@
+flask-nemo==1.0.3
+capitains_nautilus==1.0.3
+# For heroku
+gunicorn
