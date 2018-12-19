@@ -1,0 +1,3 @@
+[submodule "corpora/pta_data"]
+	path = corpora/pta_data
+	url = https://github.com/PatristicTextArchive/pta_data
