@@ -39,12 +39,12 @@ nemo = MyNemo(
     resolver=resolver,
     base_url="",
     css=["assets/css/theme.css"],
-    statics=["assets/images/logo.png"],
+    statics=["assets/images/pta.png"],
     transform={"default": "components/edition.xsl"},
     templates={"main": "templates/main"},
     chunker={"default": generic_chunker},
 )
 
 if __name__ == "__main__":
-    flask_app.run(debug=True)
+    flask_app.run(debug=False)
 
