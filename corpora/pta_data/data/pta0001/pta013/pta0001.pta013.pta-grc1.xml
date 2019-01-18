@@ -14,9 +14,10 @@
 				</respStmt>
 			</titleStmt>
 			<publicationStmt>
-			  <publisher>Patristic Text Archive</publisher>
+			  <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
+			  <distributor>Patristic Text Archive</distributor>
 			  <availability>
-			    <licence target="https://creativecommons.org/licenses/by/4.0/">Available under a Creative Commons Attribution 4.0 International License</licence>
+			    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
 			  </availability>
 			  <date>2018</date>
 			  <idno type="PTA">pta0001.pta013</idno>

@@ -6,7 +6,6 @@
 			  <title xml:lang="la">Apologia ad Constantium</title> 
 			  <title xml:lang="grc"> ̓Απολογία πρὸς τὸν βασιλέα Κωνστάντιον</title> 
 			  <author ref="http://data.perseus.org/catalog/urn:cts:greekLit:tlg2035">Athanasius Alexandrinus</author> 
-			  <sponsor>Arbeitsstelle Athanasius Werke, FAU Erlangen-Nürnberg</sponsor> 
 			  <funder>Deutsche Forschungsgemeinschaft</funder> 
 			  <respStmt>
 			    <persName xml:id="AvS">Annette von Stockhausen</persName>
@@ -14,7 +13,8 @@
 			  </respStmt>
 			</titleStmt>
 			<publicationStmt>
-			  <publisher>Patristic Text Archive</publisher>
+			  <authority>Arbeitsstelle Athanasius Werke, FAU Erlangen-Nürnberg</authority>			
+			  <distributor>Patristic Text Archive</distributor>
 			  <availability>
 			    <licence target="https://creativecommons.org/licenses/by-nc/4.0/">Available under a Creative Commons Attribution-NonCommercial 4.0 International Licence (CC BY-NC 4.0)</licence>
 			  </availability>
