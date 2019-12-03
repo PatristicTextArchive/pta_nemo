@@ -343,7 +343,7 @@
 	<xsl:if test="@cRef">
 	  <a class="urn">
             <xsl:attribute name="href">
-                <xsl:value-of select="concat('http://www.biblindex.info/en/biblical/content/ref/', translate(normalize-space(translate(@cRef,':','_')),' ',','))"/>
+                <xsl:value-of select="concat('http://www.biblindex.mom.fr/en/biblical/content/ref/', translate(normalize-space(translate(@cRef,':','_')),' ',','))"/>
             </xsl:attribute>
 	    <xsl:attribute name="target">_blank</xsl:attribute>
             [<xsl:value-of select="normalize-space(translate(@cRef,':',' '))"/>]
