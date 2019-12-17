@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts" groupUrn="urn:cts:pta:pta0001" urn="urn:cts:pta:pta0001.pta044" xml:lang="grc">
+    <ti:title xml:lang="lat">In illud: Genimina viperarum (Mt 23,33; Lc 3,7)</ti:title>
+    <ti:edition workUrn="urn:cts:pta:pta0001.pta044" urn="urn:cts:pta:pta0001.pta044.pta-grc1">
+        <ti:label xml:lang="mul">In illud: Genimina viperarum (Mt 23,33; Lc 3,7)</ti:label>
+        <ti:description xml:lang="mul">
+            Critical edition by Judit Kecskeméti, Sévérien de Gabala. Homelie inédite sur le Saint-Esprit (CPG 4947), 1978 (digital edition with permission by the editor; critical apparatus not yet digitized)
+        </ti:description>
+    </ti:edition>
+</ti:work>
