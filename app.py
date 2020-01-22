@@ -1,7 +1,7 @@
 from flask import Flask
 from capitains_nautilus.flask_ext import FlaskNautilus
-from application.corpus import resolver
-from application.extension import MyNemo
+from nemoPTA.corpus import resolver
+from nemoPTA.nemo import NemoPTA
 
 def get_citation_scheme(text):
     # We create an empty list to store citations level names
@@ -33,18 +33,21 @@ flask_app = Flask("Flask Application for Nemo")
 
 
 nautilus_api = FlaskNautilus(name="Nautilus", prefix="/api", app=flask_app, resolver=resolver)
-nemo = MyNemo(
+nemo = NemoPTA(
     name="InstanceNemo",
     app=flask_app,
     resolver=resolver,
     base_url="",
-    css=["assets/css/theme.css"],
-    statics=["assets/images/logo.png"],
-    transform={"default": "components/edition.xsl"},
-    templates={"main": "templates/main"},
-    chunker={"default": generic_chunker},
+    css=["assets/css/theme.css", "assets/css/main.css"],
+    static_folder="./assets/",
+    transform={"default": "components/edition.xsl",
+               "pdf": "components/xml_to_pdf.xsl"},
+    templates={"main": "templates/main",
+               "search": "templates/search",
+               "viewer": "templates/viewer"},
+    chunker={"default": generic_chunker}
 )
 
 if __name__ == "__main__":
-    flask_app.run(debug=False)
+    flask_app.run(debug=True)
 

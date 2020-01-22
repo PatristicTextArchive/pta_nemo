@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav my-0 mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('InstanceNemo.r_about') }}">{{ ('About') }}</a>
+            </li>
+	    <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" role="button" id="collDropdown" data-toggle="dropdown" aria-haspopus="true" aria-expanded="false" href="#">{{ ('Texts') }}</a>
+              <div class="dropdown-menu" aria-labelledby="collDropdown">
+		{% for c in main_collections %}
+		<a class="dropdown-item" href="{{url_for('.r_collection_semantic', objectId=c.id, semantic=c.label|slugify)}}">{{c.label}}</a>
+		{% endfor %}
+              </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('InstanceNemo.r_encoding') }}">{{ ('Encoding Guidelines') }}</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('InstanceNemo.r_contributing') }}">{{ ('Contributing') }}</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('InstanceNemo.r_contact') }}">{{ ('Contact') }}</a>
+            </li>
+	    <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
+	      <div class="dropdown-menu" aria-labelledby="collDropdown">
+		<a class="dropdown-item" href="https://github.com/PatristicTextArchive/pta_data/archive/master.zip"><i class="fa fa-download">Download all TEI-encoded texts (as zip)</i></a>
+		<a class="dropdown-item" target="_blank" href="https://github.com/PatristicTextArchive/Schema">TEI Schema</a>
+	      </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>

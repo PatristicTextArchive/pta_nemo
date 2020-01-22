@@ -1,15 +1,40 @@
-{% extends "main::container.html" %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 metatags *must* come first in the head; any other head content must come *after* these tags. -->
+    <meta name="description" content="Late Antique Christian Texts">
+    <meta name="keywords" content="XML,TEI,Patristics">
+    <meta name="author" content="Annette von Stockhausen">
+    <title>Patristic Text Archive</title>
+    {% block metadata %}
+      {% include "main::metadata.html" %}
+    {% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% for filename, directory in assets["css"].items() %}
+      {% if directory %}<link rel="stylesheet" href="{{url_for('.secondary_assets', filetype='css', asset=filename)}}">
+      {% else %}<link rel="stylesheet" href="{{ filename }}">
+      {% endif %}
+    {% endfor %}
+  </head>
+  <body>
 
-{%block article%}
-<article>
-    <header>
-        <h1>Welcome to the Patristic Text Archive!</h1>
-    </header>
-    <section>
-        <p>This is a demo of the <a href="https://patristictextarchive.github.io/" target="_blank">Patristic Text Archive</a> based on <a href="https://github.com/Capitains/flask-capitains-nemo" target="_blank">Nemo (Nemo is an extension for Flask and provides a User Interface layer for a CTS Repository)</a></p>
-    </section>
-    <footer>
+<div class="jumbotron bg-cover" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url({{url_for('InstanceNemo.static', filename='images/titelbild-bibelexegese.jpg')}})">
+  <div class="ribbon"><span>Preview</span></div>
+  <div class="container">
+    <a href="https://www.bbaw.de"><img id="bbaw-logo-header" src="{{url_for('InstanceNemo.static', filename='images/bbaw_logo_white.svg')}}" alt="Logo: Berlin-Brandenburgische Akademie der Wissenschaften"></a>
+   <h1>Patristic Text Archive</h1>
+  <p class="lead">An open access archive of Late Antique Christian texts.</p>
+  <a class="btn btn-light btn-lg active" href="{{ url_for('InstanceNemo.r_about') }}" role="button">About the PTA</a>
+  <a class="btn btn-light btn-lg active" href="{{ url_for('InstanceNemo.r_collections') }}" role="button">Browse Archive</a>
+  <a class="btn btn-light btn-lg active" href="to be implemented" role="button">Search Texts</a>
 
-    </footer>
-</article>
-{%endblock%}
+  
+  <p style="position: fixed; right: 20px; bottom: 20px;"> <a href="https://gallica.bnf.fr/ark:/12148/btv1b84522082/f169.image">Photo: Parisinus gr. 510, f. 78r (Ausschnitt)</a></p>
+  </div>
+
+</div>
+  </body>
+</html>
+

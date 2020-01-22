@@ -5,12 +5,21 @@ from MyCapytain.errors import UnknownCollection
 from MyCapytain.common.constants import Mimetypes
 
 
-class MyNemo(Nemo):
+class NemoPTA(Nemo):
     """ We'll write more there later """
-    ROUTES = Nemo.ROUTES + [("/text/<objectId>/full", "r_full_text", ["GET"])]
+    ROUTES = Nemo.ROUTES + [
+        ("/text/<objectId>/full", "r_full_text", ["GET"]),
+        ("/about", "r_about", ["GET"]),
+        ("/contributing", "r_contributing", ["GET"]),
+        ("/encoding", "r_encoding", ["GET"]),
+        ("/contact", "r_contact", ["GET"]),
+        ("/bibliography", "r_bibliography", ["GET"]),
+        ("/manuscripts", "r_manuscripts", ["GET"]),
+        ("/indices", "r_indices", ["GET"]),
+    ]
     CACHED = Nemo.CACHED + ["r_full_text"]
 
-    def r_full_text(self, objectId, lang=None):
+    def r_full_text(self, objectId, lang=None,original_breadcrumb=True):
         """ Retrieve the text of the passage
         :param objectId: Collection identifier
         :type objectId: str
@@ -52,3 +61,59 @@ class MyNemo(Nemo):
             "next": None
         }
 
+    
+    def r_about(self):
+        """ About route function
+
+        :return: Template to use for About page
+        :rtype: {str: str}
+        """
+        return {"template": "main::about.html"}
+
+    def r_contributing(self):
+        """ Contributing route function
+
+        :return: Template to use for contributing page
+        :rtype: {str: str}
+        """
+        return {"template": "main::contributing.html"}
+
+    def r_encoding(self):
+        """ Encoding guidelines route function
+
+        :return: Template to use for encoding guidelines page
+        :rtype: {str: str}
+        """
+        return {"template": "main::encoding.html"}
+
+    def r_contact(self):
+        """ Contact route function
+
+        :return: Template to use for contact page
+        :rtype: {str: str}
+        """
+        return {"template": "main::contact.html"}
+
+    def r_manuscripts(self):
+        """ Manuscripts route function
+
+        :return: Template to use for manuscripts page
+        :rtype: {str: str}
+        """
+        return {"template": "main::404.html"}
+
+    def r_bibliography(self):
+        """ Bibliography route function
+
+        :return: Template to use for bibliography page
+        :rtype: {str: str}
+        """
+        return {"template": "main::404.html"}
+
+    def r_indices(self):
+        """ Indices route function
+
+        :return: Template to use for manuscripts page
+        :rtype: {str: str}
+        """
+        return {"template": "main::indices.html"}

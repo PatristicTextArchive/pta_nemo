@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts" groupUrn="urn:cts:dummy:dummy1" urn="urn:cts:dummy:dummy1.pta100" xml:lang="grc">
+    <ti:title xml:lang="lat">Dummy</ti:title>
+    <ti:edition workUrn="urn:cts:dummy:dummy1.pta100" urn="urn:cts:dummy:dummy1.pta100.pta-grc1">
+        <ti:label xml:lang="mul">Dummy</ti:label>
+        <ti:description xml:lang="mul">
+            Edition Annette v. Stockhausen
+        </ti:description>
+    </ti:edition>
+</ti:work>

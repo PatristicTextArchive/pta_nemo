@@ -1,0 +1,92 @@
+{% extends "main::container.html" %}
+
+{% block article %}
+
+<link rel="stylesheet"  href="{{url_for('InstanceNemo.static', filename='css/text_container.css')}}">
+
+{% if objects %}
+    {% set prev_texts = objects|join('+', attribute='objectId') %}
+    {% set prev_reffs = objects|join('+', attribute='subreference') %}
+{% else %}
+    {% set prev_texts = objectId %}
+    {% set prev_reffs = subreference %}
+{% endif %}
+<!-- THE LEFT COLUMN -->
+<div id="sidebar_l" class="col-sm-3 d-none d-lg-block reading-sidebar">
+    <div class="d-flex flex-column" id="left-sticky-col">
+      <!--Mockup: Metadaten; Metadaten müssen noch bearbeitet werden -> cpt:structuredmetadata -->
+      <h3>Metadaten</h3>
+      <div class="card">
+	<div class="card-body">
+          <h5 class="card-title">Bibl. Daten</h5>
+	  <p>{{collections.current.label}}, <i>{{collections.current.description}}</i></p>
+	  <span class='Z3988' title='{{collections.current.coins}}'></span>
+	  <p class="text-warning">auch: PTA- und CPG-Nummer, CC-BY-Lizensierung; Incipit, Entry in Pinakes-Database, Editionsart (kritisch, vor-kritisch, ...), was ist ausgezeichnet? (Bibel, Orte, Personen)</p>
+	  <p class="text-warning">Vgl. About this text und How to cite in https://syriaccorpus.org/</p>
+	  <p class="text-warning">Zitationsfunktion für markierte Textpassage (URN)</p>
+	</div>
+      </div>
+      <div class="card">
+	<div class="card-body">
+          <h5 class="card-title">Handschriften</h5>
+	  <p class="text-warning">Wenn listwit in Text</p>
+	</div>
+      </div>
+    </div>
+</div>
+
+
+<div class="col-sm-6 hfeed right-columns" id="reading-container">
+  <!-- THE TEXTS -->
+  <p class="text-warning">Gliederung o. Sprungmarken</p>
+  <p class="text-warning">Präfatio, Edition, Übersetzung, Transkription, Digitalisat</p>
+  <p class="text-warning">Möglichkeit, eine zweite Spalte dazuzunehmen für eines der o.g. Elemente; dann ggfs. linke und/oder rechte Spalte auszublenden.</p>
+  <p class="text-warning">Textkritische Einträge (lem, rdg) interlinear?</p>
+{% block texts %}
+{% endblock %}
+</div>
+
+<!-- THE RIGHT COLUMN -->
+<div id="sidebar_r" class="col-sm-3 d-none d-lg-block reading-sidebar">
+    <div class="d-flex flex-column" id="right-sticky-col">
+      <!--Mockup-->
+      <h3>Hilfen zur Texterschließung</h3>
+      <div class="card">
+	<div class="card-body">
+          <h5 class="card-title">Lexikon</h5>
+	  <p class="text-warning">Bei Klick auf Wort im Text Anzeige des Lemmas und des entsprechenden Eintrags in LSJ (auf Höhe des Textes)</p>
+	</div>
+      </div>
+      <div class="card">
+	<div class="card-body">
+          <h5 class="card-title">Bibelstellen</h5>
+	  <p class="text-warning">Bei Klick auf Verweis im Text Anzeige der Stelle mit Kontext in LXX Rahlfs/NT Graece (auf Höhe des Textes)</p>
+	</div>
+      </div>
+      <div class="card">
+	<div class="card-body">
+          <h5 class="card-title">Personen</h5>
+	  <p class="text-warning">Bei Klick auf Verweis im Text Anzeige des Eintrages in GND (soweit vorhanden); bei biblischen Personen Anzeige des enstprechenden Eintrags in Tyndale-Personenindex (auf Höhe des Textes)</p>
+	</div>
+      </div>
+      <div class="card">
+	<div class="card-body">
+          <h5 class="card-title">Orte</h5>
+	  <p class="text-warning">Bei Klick auf Verweis im Text Anzeige des Eintrages in Pleiades-ID oder Ort auf Karte (auf Höhe des Textes)</p>
+	</div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block metadata %}
+{% endblock %}
+
+{% block footer %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.5.11/split.min.js"></script>
+<script>
+var gutterBackgroundImage="url('{{ url_for('InstanceNemo.static', filename='images/vertical_handle.png') }}')";
+</script>
+<script type="text/javascript" src="{{url_for('InstanceNemo.static', filename='js/text_container.js')}}"></script>
+{% endblock %}
