@@ -3,7 +3,7 @@ from flask import Markup, redirect, url_for
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
 from MyCapytain.common.constants import Mimetypes
-
+from lxml import etree
 
 class NemoPTA(Nemo):
     """ We'll write more there later """
@@ -13,9 +13,6 @@ class NemoPTA(Nemo):
         ("/contributing", "r_contributing", ["GET"]),
         ("/encoding", "r_encoding", ["GET"]),
         ("/contact", "r_contact", ["GET"]),
-        ("/bibliography", "r_bibliography", ["GET"]),
-        ("/manuscripts", "r_manuscripts", ["GET"]),
-        ("/indices", "r_indices", ["GET"]),
     ]
     CACHED = Nemo.CACHED + ["r_full_text"]
 
@@ -93,27 +90,3 @@ class NemoPTA(Nemo):
         :rtype: {str: str}
         """
         return {"template": "main::contact.html"}
-
-    def r_manuscripts(self):
-        """ Manuscripts route function
-
-        :return: Template to use for manuscripts page
-        :rtype: {str: str}
-        """
-        return {"template": "main::404.html"}
-
-    def r_bibliography(self):
-        """ Bibliography route function
-
-        :return: Template to use for bibliography page
-        :rtype: {str: str}
-        """
-        return {"template": "main::404.html"}
-
-    def r_indices(self):
-        """ Indices route function
-
-        :return: Template to use for manuscripts page
-        :rtype: {str: str}
-        """
-        return {"template": "main::indices.html"}

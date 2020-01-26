@@ -4,7 +4,6 @@
 <header>
     <h2 class="author vcard text-center"><span class="fn">{{collections.current.author}}</span></h2>
     <h1 class="entry-title text-center">{{collections.current.title}}</h1>
-      <p class="text-warning">Exportfunktionen: TEI-XML, PDF</p>
 </header>
 {% endmacro %}
 
@@ -36,9 +35,6 @@
                         {{ text_passage }}
                 </section>
             </div>
-            <footer>
-            {{ footer }}
-            </footer>
         </article>
     </div>
 {% endmacro %}
@@ -47,5 +43,9 @@
 
 {{ show_passage(text_passage, navigation=nav(), header=header_passage()) }}
 
+{% endblock %}
+
+{% block footer %}
+    {% include "main::footer.html" %}
 {% endblock %}
 

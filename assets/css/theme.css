@@ -103,14 +103,16 @@ ul.menu li a {
 
 .note .notetext {
     visibility: hidden;
-    width: 120px;
     background-color: white;
-    color: black;
-    text-align: center;
-    padding: 5px 0;
+    color: grey;
+    box-shadow: 5px 5px 8px #CCC;
+    text-align: left;    
+    font-style: normal;
+    padding: 10px 10px;
     border-radius: 6px;
     border: 1px dotted black;	
     position: absolute;
+    margin-left: 20px; 
     z-index: 1;
 }
 

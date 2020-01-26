@@ -301,11 +301,11 @@
     </xsl:template>
     
     <xsl:template match="t:note">
-        <span class="note"><xsl:text>*</xsl:text><span class="notetext"><xsl:value-of select="." /></span></span>
+      <!-- empty -->
     </xsl:template>
 
     <xsl:template match="t:app">
-      <xsl:value-of select="./t:lem"/><span class="note"><xsl:text>*</xsl:text><span class="notetext"><xsl:value-of select="./t:lem"/><xsl:text> </xsl:text><xsl:value-of select="translate(./t:lem/@resp|./t:lem/@wit,'#','')"/>
+      <span class="note"><xsl:value-of select="./t:lem"/><xsl:text>*</xsl:text><span class="notetext"><xsl:value-of select="./t:lem"/><xsl:text> </xsl:text><xsl:value-of select="translate(./t:lem/@resp|./t:lem/@wit,'#','')"/>
       <xsl:choose>
       <xsl:when test="./t:rdg/@cause='omission'">
 	<xsl:text> > </xsl:text><xsl:value-of select="translate(./t:rdg/@resp|./t:rdg/@wit,'#','')"/>

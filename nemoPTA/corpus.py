@@ -8,10 +8,8 @@ misc = CtsTextInventoryMetadata("all", parent=general_collection)
 misc.set_label("All authors", "mul")
 
 gcs = CtsTextInventoryMetadata("gcs", parent=general_collection)
-gcs.set_label("GCS Retrodigitalisate", "mul")
+gcs.set_label("GCS retrodigitized (uncorrected from OGL/First1KGreek)", "mul")
 
-bibelexegese = CtsTextInventoryMetadata("bibelexegese", parent=general_collection)
-bibelexegese.set_label("Bibelexegese Neueditionen", "mul")
 
 organizer = CollectionDispatcher(general_collection, default_inventory_name="misc")
 
@@ -23,19 +21,14 @@ def organize_my_misc(collection, path=None, **kwargs):
     return False
 
 @organizer.inventory("gcs")
-def organize_my_severian(collection, path=None, **kwargs):
-    if collection.id.startswith("urn:cts:dummy:dummy1"):
+def organize_my_gcs(collection, path=None, **kwargs):
+    if collection.id.startswith("urn:cts:greekLit:"):
         return True
     return False
 
-@organizer.inventory("bibelexegese")
-def organize_my_dok(collection, path=None, **kwargs):
-    if collection.id.startswith("urn:cts:dummy:dummy2"):
-        return True
-    return False
 
 
 # Parsing the data
-resolver = NautilusCTSResolver(["corpora/pta_data","corpora/dummy"], dispatcher=organizer)
+resolver = NautilusCTSResolver(["corpora/pta_data","corpora/GCS"], dispatcher=organizer)
 resolver.parse()
 
