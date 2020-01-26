@@ -305,19 +305,28 @@
     </xsl:template>
 
     <xsl:template match="t:app">
-      <span class="note"><xsl:value-of select="./t:lem"/><xsl:text>*</xsl:text><span class="notetext"><xsl:value-of select="./t:lem"/><xsl:text> </xsl:text><xsl:value-of select="translate(./t:lem/@resp|./t:lem/@wit,'#','')"/>
-      <xsl:choose>
-      <xsl:when test="./t:rdg/@cause='omission'">
-	<xsl:text> > </xsl:text><xsl:value-of select="translate(./t:rdg/@resp|./t:rdg/@wit,'#','')"/>
-      </xsl:when>
-      <xsl:when test="./t:rdg/@cause='addition'">
-	<xsl:text> + </xsl:text><xsl:value-of select="./t:rdg"/><xsl:text> </xsl:text><xsl:value-of select="translate(./t:rdg/@resp|./t:rdg/@wit,'#','')"/>
-      </xsl:when>
-      <xsl:otherwise>
-	<xsl:text> : </xsl:text><xsl:value-of select="./t:rdg"/><xsl:text> </xsl:text><xsl:value-of select="translate(./t:rdg/@resp|./t:rdg/@wit,'#','')"/>
-      </xsl:otherwise>
-      </xsl:choose>
-      </span></span>
+      <span class="note">
+	<xsl:choose>
+	  <xsl:when test="t:lem=''">
+	    <xsl:text>*</xsl:text><span class="notetext"><xsl:value-of select="./t:rdg"/><xsl:text> </xsl:text><xsl:value-of select="translate(./t:rdg/@resp|./t:rdg/@wit,'#','')"/></span>
+	  </xsl:when>
+	  <xsl:otherwise>
+	    <xsl:value-of select="./t:lem"/><span class="notetext"><xsl:value-of select="./t:lem"/><xsl:text> </xsl:text><xsl:value-of select="translate(./t:lem/@resp|./t:lem/@wit,'#','')"/>
+	    <xsl:choose>
+	      <xsl:when test="./t:rdg/@cause='omission'">
+		<xsl:text> > </xsl:text><xsl:value-of select="translate(./t:rdg/@resp|./t:rdg/@wit,'#','')"/>
+	      </xsl:when>
+	      <xsl:when test="./t:rdg/@cause='addition'">
+		<xsl:text> + </xsl:text><xsl:value-of select="./t:rdg"/><xsl:text> </xsl:text><xsl:value-of select="translate(./t:rdg/@resp|./t:rdg/@wit,'#','')"/>
+	      </xsl:when>
+	      <xsl:otherwise>
+		<xsl:text> : </xsl:text><xsl:value-of select="./t:rdg"/><xsl:text> </xsl:text><xsl:value-of select="translate(./t:rdg/@resp|./t:rdg/@wit,'#','')"/>
+	      </xsl:otherwise>
+	    </xsl:choose>
+	  </span>
+	  </xsl:otherwise>
+	</xsl:choose>
+	</span>
     </xsl:template>
     
     <xsl:template match="t:choice">

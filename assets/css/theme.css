@@ -97,7 +97,6 @@ ul.menu li a {
 .note {
     position: relative;
     display: inline-block;
-   color: #345115;
     border-bottom: 1px dotted black; 
 }
 
@@ -106,13 +105,14 @@ ul.menu li a {
     background-color: white;
     color: grey;
     box-shadow: 5px 5px 8px #CCC;
-    text-align: left;    
     font-style: normal;
+    font-size: 80%;
     padding: 10px 10px;
     border-radius: 6px;
     border: 1px dotted black;	
     position: absolute;
-    margin-left: 20px; 
+    top: 40px;
+    left: -40px;
     z-index: 1;
 }
 
