@@ -18,6 +18,7 @@
       {% else %}<link rel="stylesheet" href="{{ filename }}">
       {% endif %}
     {% endfor %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alpheios-components@latest/dist/style/style-components.min.css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -58,7 +59,28 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+      import ("https://cdn.jsdelivr.net/npm/alpheios-embedded@latest/dist/alpheios-embedded.min.js").then(embedLib => {
+        window.AlpheiosEmbed.importDependencies({
+          mode: 'cdn'
+        }).then(Embedded => {
+            new Embedded({
+		clientId: 'PTAtest',
+		textLangCode: 'grc',
+		layoutType: 'readingTools',
+		toolbarInitialPos: { top: '200px', right: '15px'},
+		simpleMode: true
+	    }).activate();
+        }).catch(e => {
+          console.error(`Import of Alpheios embedded library dependencies failed: ${e}`)
+        })
 
+      }).catch(e => {
+        console.error(`Import of Alpheios Embedded library failed: ${e}`)
+      })
+    });
+</script>
     {% for filename, directory in assets["js"].items() %}
       {% if directory %}<script src="{{url_for('.secondary_assets', filetype='js', asset=filename)}}"></script>
       {% else %}<script src="{{ filename }}"></script>
