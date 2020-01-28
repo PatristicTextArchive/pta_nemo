@@ -1,4 +1,5 @@
 {% extends "main::container.html" %}
+{% import "main::macros.html" as macros %}
 
 {% block article %}
 
@@ -16,11 +17,43 @@
   <div class="d-flex flex-column" id="left-sticky-col">
     <div class="card">
       <div class="card-body">
+        <h5 class="card-title">TOC<a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">:::</a></h5>
+	<div class="collapse" id="collapseExample">
+      {% if cache_active %}
+      {% cache cache_time, cache_key %}{{ macros.hierarchical_dispatcher(objectId, reffs, citation) }} {% endcache %}
+      {% else %}
+      {{ macros.hierarchical_dispatcher(objectId, reffs, citation) }}
+      {% endif %}
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
         <h5 class="card-title">Bibliographic data</h5>
 	<p>{{collections.current.label}}, <i>{{collections.current.description}}</i></p>
 	<span class='Z3988' title='{{collections.current.coins}}'></span>
       </div>
     </div>
+    {% if collections.current.kind %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Features</h5>
+	<img width="90%" id="kind-of-edition" src="/assets/nemo/images/{{ collections.current.kind }}.svg" alt="Kind of edition">
+      </div>
+    </div>
+    {% endif %}    
+    {% if collections.current.ext_metadata %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">IDs</h5>
+	<ul>
+	{% for k,v in collections.current.ext_metadata.items() %}
+	<li>{{k}}: {{v}}</li>
+	{% endfor %}
+	</ul>
+      </div>
+    </div>
+    {% endif %}
   </div>
 </div>
 
