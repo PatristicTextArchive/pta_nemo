@@ -55,7 +55,7 @@ class NemoPTA(Nemo):
             if "Non-critical" in kind:
                 banner = "edition-pre-critical-red"
             elif "Outdated" in kind:
-                banner = "edition-outdated--critical (with app)-orange"
+                banner = "edition-outdated--critical_with_app-orange"
             elif "without critical apparatus" in kind:
                 banner = "edition-critical (no app)-orange"
             else:

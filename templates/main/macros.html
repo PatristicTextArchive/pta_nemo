@@ -7,9 +7,7 @@
 {% macro reff_dict(objectId, reffs) -%}
     {% for human_reff, dict_or_reff in reffs.items() %}
     {% if dict_or_reff|is_str %}
-    <ul class="list-unstyled">
       {{ single_ref(objectId, dict_or_reff, human_reff) }}
-    </ul>
         {% else %}
             <ul class="list-unstyled">
                 <li>
@@ -23,5 +21,7 @@
 {%- endmacro %}
 
 {% macro hierarchical_dispatcher(objectId, reffs, citation) -%}
-    {{ reff_dict(objectId, (reffs|hierarchical_passages(citation))) }}
+    <ul class="list-unstyled">
+      {{ reff_dict(objectId, (reffs|hierarchical_passages(citation))) }}
+    </ul>
 {%- endmacro %}
