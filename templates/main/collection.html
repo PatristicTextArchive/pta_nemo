@@ -19,8 +19,8 @@
 	  <img class="card-img-top" src="{{url_for('InstanceNemo.static', filename='images/text.png')}}" alt="Card image cap">
 	  <div class="card-body">
             <h5 class="card-title">[{{coll.lang}}] {{ coll.label }}</h5>
-            <a class="btn btn-primary" href="{{url_for('.r_full_text', objectId=coll.id)}}">Full Text</a> 
-            <a class="btn btn-primary" href="{{url_for('.r_first_passage', objectId=coll.id)}}">Read</a> 
+	    <p>{{ coll.id }}</p>
+            <a class="btn btn-primary" href="{{url_for('.r_full_text', objectId=coll.id)}}">Read</a> 
 	  </div>
 	</div>
       </div>
@@ -30,6 +30,7 @@
 	  <img class="card-img-top" src="{{url_for('InstanceNemo.static', filename='images/text.png')}}" alt="Card image cap">
 	  <div class="card-body">
             <h5 class="card-title">{{ coll.label }}</h5>
+	    <p>{{ coll.id }}</p>
             <a class="btn btn-primary" href="{{url_for('.r_collection_semantic', objectId=coll.id, semantic=coll.semantic)}}">Browse ({{coll.size}})</a>
 	  </div>
 	</div>

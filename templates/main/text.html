@@ -9,14 +9,10 @@
 
 {% macro nav() %}
     {% if prev %}
-    <a class="btn btn-xs btn-light" href="{{url_for('InstanceNemo.r_passage', objectId=objectId, subreference=prev) }}">
-        &lt;
-    </a>
+    <a class="btn btn-xs btn-light" href="{{url_for('InstanceNemo.r_passage', objectId=objectId, subreference=prev) }}">&lt; previous</a>
     {% endif %}
     {% if next %}
-    <a class="btn btn-xs btn-light" href="{{url_for('InstanceNemo.r_passage', objectId=objectId, subreference=next) }}">
-        &gt;
-    </a>
+    <a class="btn btn-xs btn-light" href="{{url_for('InstanceNemo.r_passage', objectId=objectId, subreference=next) }}">next &gt;</a>
     {% endif %}
 {% endmacro %}
 
