@@ -78,8 +78,10 @@ class NemoPTA(Nemo):
                 banner = "edition-outdated--critical_with_app-orange"
             elif "critical-edition-no-app" in kind.attrib['status']:
                 banner = "edition-critical (no app)-orange"
-            else:
+            elif "critical-edition" in kind.attrib['status']:
                 banner = "edition-critical%20(with%20app)-brightgreen"
+            else:
+                pass
         except:
             pass
         return banner
@@ -131,10 +133,14 @@ class NemoPTA(Nemo):
             witlist = []
             #link = wit.attrib["facs"]
             witness = ":".join(wit.itertext()).split(":")
+            print(witness)
             witlist.append(witness[0])
             witlist.append(witness[1])
             witlist.append(witness[3])
-            witlist.append(witness[5])
+            try:
+                witlist.append(witness[5])
+            except:
+                pass
             #witlist.append(link)
             witnesses.append(witlist)
         return witnesses
