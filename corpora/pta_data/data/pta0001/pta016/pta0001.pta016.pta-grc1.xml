@@ -52,36 +52,21 @@
                 <cRefPattern n="section" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
             </refsDecl>
             <refsDecl xml:id="biblical">
-                <cRefPattern matchPattern="LXX:(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$1$2,$3/LXX">
+                <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
                     <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
-                    <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel</p>
+                    <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
                 </cRefPattern>
-                <cRefPattern matchPattern="LXX:(.+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$1$2/LXX">
+                <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
                     <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
                 </cRefPattern>
-                <cRefPattern matchPattern="LXX:(.+)" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$1/LXX">
+                <cRefPattern matchPattern="(.+):(.+)" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
                     <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="NA:(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$1$2,$3/NA">
-                    <p>Noted are references to a biblical book, chapter, verse, sc. NA:Mt:1:1; also possible: NA:Mt:1:1-3 for a sequence of verses or NA:Mt:1:1.3 for two verses not following each other.</p>
-                    <p>The following abbreviations are used: Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="NA:(.+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$1$2/NA">
-                    <p>Noted are references to a biblical book and chapter, sc. NA:Mt:1; also possible: NA:Mt:1-3 for a sequence of chapters or NA:Mt:1.3 for two chapters not following each other.</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="NA:(.+)" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$1/NA">
-                    <p>Noted are references to a biblical book, sc. NA:Mt.</p>
                 </cRefPattern>
             </refsDecl>
             <editorialDecl>
                 <interpretation>
                     <p xml:id="biblical-quotations">
                         Bibelzitate sind ausgezeichnet und nach den oben angeführten Grundsätzen nachgewiesen.
-                    </p>
-                    <p xml:id="places">
-                        Orte sind ausgezeichnet und mit den IDs des
-                        <ref target="https://pleiades.stoa.org/">Pleiades Gazetteers</ref>
-                        referenziert.
                     </p>
                     <p xml:id="persons">
                         Personen sind ausgezeichnet. Biblische Personen sind mit den IDs der
@@ -169,12 +154,12 @@
                         Καὶ τί εὐθέως;
                         <quote>Μέγας ὁ κύριος ὁ ποιήσας αὐτόν<ref decls="#biblical" cRef="LXX:Sir:43:5"/>
                         </quote>. Καὶ τὸ κάλλος ἐκήρυξε καὶ τὸν τεχνίτην οὐκ ἔκρυψεν. Ὁ δὲ ἀσεβὴς κακῶς εἶδε τοὺς οὐρανοὺς διηγουμένους δόξαν θεοῦ, οὐ λόγοις, ἀλλὰ τῷ κάλλει τῆς δημιουργίας. Οὐ γὰρ φωνήν ποτε ἔρρηξεν ὁ οὐρανός, ἀλλὰ φωνῆς ἐνεργεστέραν ἀφίησι μαρτυρίαν διὰ τῆς εὐπρεπείας. Καὶ σιωπῶν ὁ οὐρανὸς διηγεῖται δόξαν θεοῦ; Πάνυ μὲν οὖν. Τὰ σὰ γράμματα σιωπῶντα λαλεῖ· Στοιχεῖα δὲ θεοῦ σιωπῶντα οὐ φθέγγεται; Ἔλαβες γὰρ τὸ γεῦμα τῆς εὐσεβείας· ἀπὸ τοῦ γεύματος τὸ πᾶν λάμβανε τῆς ἀληθείας. Ἐξέτασον τὸ μέρος τοῦ ἀσεβοῦς, πῶς ἀπὸ τῶν αὐτῶν προσκόπτει, ἀφ’ ὧν ὁ δίκαιος δικαιοῦται. Ὁρᾷ σελήνην, καὶ προσκυνεῖ· ὁρᾷ τὰ ἄστρα, καὶ σέβει· ὁρᾷ τὴν θάλασσαν, καὶ θεοποιεῖ. Οἱ ἐπὶ τῆς Βαβυλωνίας καμίνου, οἱ ἐν αὐτῇ εἰσελθόντες, μετὰ τῆς σωτηρίου καὶ
-                        <quote>καλῆς ὁμολογίας<ref decls="#biblical" cRef="GNT:1 Ti:6:12"/>
+                        <quote>καλῆς ὁμολογίας<ref decls="#biblical" cRef="GNT:1Tim:6:12"/>
                         </quote>
                         ὕμνουν τὸν θεὸν διὰ τῶν ἔργων, λέγοντες·
-                        <quote>Εὐλογεῖτε πάντα τὰ ἔργα κυρίου τὸν κύριον<ref decls="#biblical" cRef="LXX:Dan:3:57"/>
+                        <quote>Εὐλογεῖτε πάντα τὰ ἔργα κυρίου τὸν κύριον<ref decls="#biblical" cRef="LXX:Dn:3:57"/>
                         </quote>. Ἀρκεῖ μὲν οὖν ταύτην εἰπόντας τὴν φωνὴν παῦσαι τὸν ὕμνον. Οὐ γὰρ τῷ μήκει τῶν ὕμνων, ἀλλὰ τῇ προθέσει τῶν ὑμνούντων θεὸς ἐπαναπαύεται. Διὰ τοῦ τοίνυν εἰπεῖν
-                        <quote>Πάντα τὰ ἔργα<ref decls="#biblical" cRef="LXX:Dan:3:57"/>
+                        <quote>Πάντα τὰ ἔργα<ref decls="#biblical" cRef="LXX:Dn:3:57"/>
                         </quote>, πάντα περιελαμβάνετο καὶ οὐ χρεία ἦν ἑτέρας προσθήκης. Ἀλλ’ ἐπειδὴ οὐχ ἑαυτοῖς ἐκήρυττον, τὸν δὲ θεὸν ὕμνουν καὶ διὰ τοῦ ὕμνου τοὺς παρεστῶτας Χαλδαίους ἐπαίδευον, ἀναγκαίως διὰ πάσης αὐτῆς ὁδεύει τῆς κτίσεως ὁ ὕμνος, ἵνα μάθωσιν οἱ πεπλανημένοι Χαλδαῖοι, τί τὸ ὑμνούμενον καὶ τίνα τὰ ὑμνοῦντα.</p>
                 </div>
                 <div type="textpart" subtype="section" n="5">
@@ -205,7 +190,7 @@
                         <quote>Αἱ ἡμέραι γὰρ τῶν ἐτῶν ἡμῶν ἐν αὐτοῖς ἑβδομήκοντα ἔτη· καὶ τὸ πλεῖον αὐτῶν κόπος καὶ πόνος.<ref decls="#biblical" cRef="LXX:Ps:89:10"/>
                         </quote>
                         Τὸ δὲ λοιπὸν ἡ ἔδεια αὐτὸν ἐπαιδαγώγησε καὶ ἡ θλίψις ἐπέστρεψε.
-                        <quote>Παιδεύσει σε ἡ ἀποστασία σου καὶ ἡ κακία σου ἐλέγξει σε.<ref decls="#biblical" cRef="LXX:Jer:2:19"/>
+                        <quote>Παιδεύσει σε ἡ ἀποστασία σου καὶ ἡ κακία σου ἐλέγξει σε.<ref decls="#biblical" cRef="LXX:Jr:2:19"/>
                         </quote>
                     </p>
                 </div>
@@ -236,7 +221,7 @@
                         <quote>Καὶ ἐρῶ Πάτερ, ἥμαρτον εἰς τὸν οὐρανὸν καὶ ἐνώπιόν σου καὶ οὐκέτι εἰμὶ ἄξιος κληθῆναι υἱός σου· ποίησόν με ὡς ἕνα τῶν μισθίων σου.<ref decls="#biblical" cRef="NA:Lk:15:18-19"/>
                         </quote>
                         Ἄλλα τὰ ῥήματα τοῦ μετανοοῦντος καὶ ἄλλα τὰ ῥήματα τοῦ δεχομένου τὴν μετάνοιαν. Ὁ ἀπὸ ἁμαρτιῶν εἰς μετάνοιαν ἐρχόμενος, οὐ φαντάζεται βασιλείαν οὐρανῶν, οὐκ ἄξιον ἑαυτὸν κρίνει ζωῆς αἰωνίου, ἀλλὰ μόνην μίαν ἔχει προσευχὴν ῥυσθῆναι ἀπὸ γεέννης. Αὐτὸς μὲν οὖν μικρὰ προσδοκᾷ· ὁ δὲ θεὸς ἄφθονον αὐτῷ τὸν πλοῦτον τῆς εὐεργεσίας χαρίζεται. Ἀλλ’ ὢ τοῦ θαύματος. Ἐνενόησε μόνον τὴν μετάνοιαν καὶ ὁ πατὴρ εὐθέως ἔφθασε τῇ φιλανθρωπίᾳ. Οὐκ ἀνέμεινε δέξασθαι τὰ ῥήματα τῆς ἐξομολογήσεως, ἀλλὰ προέλαβε τὴν αἴτησιν, κατὰ τὸ εἰρημένον· Πρὶν ἐπικαλέσῃ με, ἐρῶ
-                        <quote>Ἰδοὺ πάρειμι.<ref decls="#biblical" cRef="LXX:Is:58"/>
+                        <quote>Ἰδοὺ πάρειμι.<ref decls="#biblical" cRef="LXX:Is:58:9"/>
                         </quote>
                         Εἶδε τὸν υἱὸν μακρόθεν ἐρχόμενον καὶ ὑπήντησεν αὐτῷ. Ὁρᾷς πῶς φθάνει ἡ φιλανθρωπία τὴν μετάνοιαν; Διὰ τοῦτο καὶ ὁ Δαυὶδ ἀποδυσάμενος τὴν νόσον τῆς ἁμαρτίας τῷ φαρμάκῳ τῆς μετανοίας καὶ εἰδὼς ὅτι φιλάνθρωπος ὢν προϋπαντᾷ τοῖς προσερχομένοις, παρακαλεῖ τὸν θεὸν λέγων·
                         <quote>Ἐξεγέρθητι εἰς συνάντησίν μου καὶ ἴδε<ref decls="#biblical" cRef="LXX:Ps:58:6"/>
@@ -405,7 +390,7 @@
                         </quote>, καὶ πιστεύομέν σοι. Ὁρᾷς τὰ τέκνα τοῦ διαβόλου πῶς σύμφωνον ἔχει τὴν μάθησιν τῆς ἀσεβείας;
                         <quote>Σῶσόν
                             <seg type="insertion">φησι</seg>
-                            σαυτὸν καὶ ἡμᾶς.<ref decls="#biblical" cRef="NA:Mk:15:52"/>
+                            σαυτὸν καὶ ἡμᾶς.<ref decls="#biblical" cRef="NA:Lk:23:39"/>
                         </quote>
                         Τί οὖν ὁ μακάριος λῃστής; Συνηγορεῖ τῷ κυρίῳ καὶ λαμβάνει τάξιν κριτοῦ ὁ κατάκριτος καὶ ἄρχεται δικάζειν τῇ ἀληθείᾳ·
                         <quote>Οὐδὲ φοβῇ σὺ τὸν θεόν, ὅτι ἐν τῷ αὐτῷ κρίματί ἐσμεν· καὶ ἡμεῖς μὲν δικαίως· ἄξια γὰρ ὧν ἐπράξαμεν, ἀπολαμβάνομεν· οὗτος δὲ τί ἐποίησεν;<ref decls="#biblical" cRef="NA:Lk:23:40-41"/>
