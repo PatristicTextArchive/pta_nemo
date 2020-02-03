@@ -41,17 +41,6 @@
     transition: 0.5s ease;
 }
 
-a {
-  color: #2a52be;
-  text-decoration: none;
-}
-a:hover,
-a:focus {
-  color: #2a52be;
-  text-decoration: underline;
-}
-
-
 ul.menu li a {
     text-transform: none;
     font-style: italic;
@@ -62,6 +51,7 @@ ul.menu li a {
     text-transform: none;
     font-style: italic;
     font-variant: normal;
+    font-size: 100%;
 }
 
 .person {

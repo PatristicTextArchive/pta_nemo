@@ -14,11 +14,11 @@
 {% endif %}
 <!-- THE LEFT COLUMN -->
 <div id="sidebar_l" class="col-sm-3 d-none d-lg-block reading-sidebar">
-  <div class="d-flex flex-column" id="left-sticky-col">
+  <div class="d-flex flex-column" id="left-sticky-col">  
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">TOC<a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">:::</a></h5>
-	<div class="collapse" id="collapseExample">
+        <h5 class="card-title">TOC<a class="btn btn-link" data-toggle="collapse" href="#collapseToc" role="button" aria-expanded="false" aria-controls="collapseToc">:::</a></h5>
+	<div class="collapse" id="collapseToc">
       {% if cache_active %}
       {% cache cache_time, cache_key %}{{ macros.hierarchical_dispatcher(objectId, reffs, citation) }} {% endcache %}
       {% else %}
@@ -27,30 +27,69 @@
       </div>
       </div>
     </div>
+    {% if collections.current.witnesses %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Manuscript witnesses</h5>
+	<ul>
+	  {% for witness in collections.current.witnesses %}
+	  <li>{{witness[0]}}: {{witness[1]}} ({{witness[2]}}), {{witness[3]}}</li>
+	  {% endfor %}
+	</ul>
+      </div>
+    </div>
+    {% endif %}
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Bibliographic data</h5>
-	<p>{{collections.current.label}}, <i>{{collections.current.description}}</i></p>
+	<p>{{collections.current.description}}</p>
 	<span class='Z3988' title='{{collections.current.coins}}'></span>
       </div>
     </div>
     {% if collections.current.kind %}
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Features</h5>
-	<img width="90%" id="kind-of-edition" src="/assets/nemo/images/{{ collections.current.kind }}.svg" alt="Kind of edition">
+        <h5 class="card-title">Type of edition</h5>
+	<img id="kind-of-edition" src="/assets/nemo/images/{{ collections.current.kind }}.svg" alt="Type of edition">
       </div>
     </div>
-    {% endif %}    
-    {% if collections.current.ext_metadata %}
+    {% endif %}      
+    {% if collections.current.features %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Features</h5>
+	{% for feature in collections.current.features %}
+	<img id="encoded-features" src="/assets/nemo/images/{{ feature }}.svg" alt="Encoded features">
+	{% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% if collections.current.idnos %}
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">IDs</h5>
 	<ul>
-	{% for k,v in collections.current.ext_metadata.items() %}
-	<li>{{k}}: {{v}}</li>
-	{% endfor %}
+	  <li>PTA: {{collections.current.idnos[0]}}</li>
+	  <li><span class="note"><a href="https://clavis.brepols.net/clacla/OA/Search.aspx" target="_blank">CPG</a><span class="notetext">You need to search for this ID in the ClaCla database; unfortunately no direct link possible.</span></span>: {{collections.current.idnos[1]}}</li>
+	  <li><span class="note"><a href="https://clavis.brepols.net/clacla/OA/Search.aspx" target="_blank">BHG</a><span class="notetext">You need to search for this ID in the ClaCla database; unfortunately no direct link possible.</span></span>: {{collections.current.idnos[2]}}</li>
+	  <li>Pinakes-Oeuvre: <a href="https://pinakes.irht.cnrs.fr/notices/oeuvre/{{collections.current.pinakes}}" target="_blank">{{collections.current.idnos[3]}}</a></li>
 	</ul>
+      </div>
+    </div>
+    {% endif %}
+    {% if collections.current.licence %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Licence</h5>
+	<a href="{{collections.current.licence[1]}}" target="_blank"><img id="licence" src="/assets/nemo/images/{{ collections.current.licence[2] }}.png" alt="{{collections.current.licence[0]}}"></a>
+      </div>
+    </div>
+    {% endif %}
+    {% if collections.current.download %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Download</h5>
+	<a href="https://raw.githubusercontent.com/PatristicTextArchive/pta_data/master/data/{{ collections.current.download[0] }}/{{ collections.current.download[1] }}.xml" target="_blank">XML-Source</a>
       </div>
     </div>
     {% endif %}
