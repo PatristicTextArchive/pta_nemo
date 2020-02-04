@@ -11,7 +11,6 @@
     {% block metadata %}
       {% include "main::metadata.html" %}
     {% endblock %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     {% for filename, directory in assets["css"].items() %}
       {% if directory %}<link rel="stylesheet" href="{{url_for('.secondary_assets', filetype='css', asset=filename)}}">
       {% else %}<link rel="stylesheet" href="{{ filename }}">
@@ -26,14 +25,20 @@
     <a href="https://www.bbaw.de"><img id="bbaw-logo-header" src="{{url_for('InstanceNemo.static', filename='images/bbaw_logo_white.svg')}}" alt="Logo: Berlin-Brandenburgische Akademie der Wissenschaften"></a>
    <h1>Patristic Text Archive</h1>
   <p class="lead">An open access archive of Late Antique Christian texts.</p>
-  <a class="btn btn-light btn-lg active" href="{{ url_for('InstanceNemo.r_about') }}" role="button">About the PTA</a>
-  <a class="btn btn-light btn-lg active" href="{{ url_for('InstanceNemo.r_collections') }}" role="button">Browse Archive</a>
+  <a class="btn btn-primary btn-lg active" href="{{ url_for('InstanceNemo.r_about') }}" role="button">About the PTA</a>
+  <a class="btn btn-primary btn-lg active" href="{{ url_for('InstanceNemo.r_collections') }}" role="button">Browse Archive</a>
 
   
   <p style="position: fixed; right: 20px; bottom: 20px;"> <a href="https://gallica.bnf.fr/ark:/12148/btv1b84522082/f169.image">Photo: Parisinus gr. 510, f. 78r (Ausschnitt)</a></p>
   </div>
 
 </div>
+    {% for filename, directory in assets["js"].items() %}
+    {% if directory %}<script src="{{url_for('.secondary_assets', filetype='js', asset=filename)}}"></script>
+    {% else %}<script src="{{ filename }}"></script>
+    {% endif %}
+    {% endfor %}
+
   </body>
 </html>
 

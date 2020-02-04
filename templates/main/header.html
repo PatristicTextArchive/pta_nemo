@@ -31,13 +31,15 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('InstanceNemo.r_contact') }}">{{ ('Contact') }}</a>
             </li>
-	    <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
-	      <div class="dropdown-menu" aria-labelledby="collDropdown">
-		<a class="dropdown-item" href="https://github.com/PatristicTextArchive/pta_data/archive/master.zip"><i class="fa fa-download">Download all TEI-encoded texts (as zip)</i></a>
-		<a class="dropdown-item" target="_blank" href="https://github.com/PatristicTextArchive/Schema">TEI Schema</a>
-	      </div>
-            </li>
+	    <li class="nav-item active dropdown show">
+	      <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		Download
+	      </a>
+	      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+		<li class="dropdown-item"><a target="_blank" href="https://github.com/PatristicTextArchive/pta_data/archive/master.zip"><i class="fas fas-download"> </i>Download all TEI-encoded texts (as zip)</a></li>
+		<li class="dropdown-item"><a target="_blank" href="https://github.com/PatristicTextArchive/Schema"><i class="fas fas-external-link-alt"> </i>TEI-Schema</a></li>
+	      </ul>
+	    </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
