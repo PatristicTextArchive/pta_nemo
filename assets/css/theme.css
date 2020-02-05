@@ -113,6 +113,10 @@
 	font-family: "Noto Serif", serif;
 }
 
+.praefatio {
+    font-size: 70%;
+}
+
 .jumbotron {
     background-size: cover;
     height: 100%;

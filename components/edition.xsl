@@ -26,7 +26,7 @@
 
  <xsl:template match="t:teiHeader" />
     
-    <xsl:template match="//t:div[@type = 'translation']">
+    <xsl:template match="t:div[@type = 'translation']">
     <div>
       <xsl:attribute name="id">
         <xsl:text>translation</xsl:text>
@@ -62,22 +62,53 @@
         </xsl:element>
     </xsl:template>
 
-    <xsl:template match="//t:div[@type = 'commentary']">
+    <xsl:template match="t:body">
+      <div>
+	<xsl:apply-templates/>
+      </div>
+    </xsl:template>
+
+    <xsl:template match="t:div[@type = 'praefatio']">
     <div>
-      <xsl:attribute name="id">
-        <xsl:text>commentary</xsl:text>
-        <xsl:if test="@xml:lang"><xsl:text>_</xsl:text></xsl:if>
-        <xsl:value-of select="@xml:lang"/>
-      </xsl:attribute>
-      
       <xsl:attribute name="class">
-        <xsl:text>commentary lang_</xsl:text>
+        <xsl:text>praefatio lang_</xsl:text>
         <xsl:value-of select="@xml:lang"/>
       </xsl:attribute>
       
-      
+      <h3>
+      <xsl:attribute name="id">
+        <xsl:text>praefatio</xsl:text>
+      </xsl:attribute>
+      <xsl:text>Praefatio</xsl:text>
+      <a>
+	<xsl:attribute name="class">
+          <xsl:text>btn btn-link</xsl:text>
+	</xsl:attribute>
+	<xsl:attribute name="data-toggle">
+          <xsl:text>collapse</xsl:text>
+	</xsl:attribute>
+	<xsl:attribute name="href">
+          <xsl:text>#collapsePraef</xsl:text>
+	</xsl:attribute>
+	<xsl:attribute name="role">
+          <xsl:text>button</xsl:text>
+	</xsl:attribute>
+	<xsl:attribute name="aria-exanded">
+          <xsl:text>false</xsl:text>
+	</xsl:attribute>
+	<xsl:attribute name="aria-controls">
+          <xsl:text>collapsePraef</xsl:text>
+	</xsl:attribute>
+	<i>
+	  <xsl:attribute name="class">
+            <xsl:text>fas fas-angle-double-down</xsl:text>
+	  </xsl:attribute>
+	</i>
+      </a>
+      </h3>
+      <div class="collapse" id="collapsePraef">
       <xsl:apply-templates/>
-    
+      </div>
     </div>
   </xsl:template>
     
@@ -255,8 +286,15 @@
     </xsl:template>
     
     <xsl:template match="t:head">
-        <h3 class="head"><xsl:apply-templates />
-            <xsl:apply-templates select="@urn" /></h3>
+      <xsl:choose>
+	<xsl:when test="parent::t:div[@type='edition']">
+          <h3 class="head"><xsl:apply-templates />
+          <xsl:apply-templates select="@urn" /></h3>
+	</xsl:when>
+	<xsl:otherwise>
+          <h4 class="head"><xsl:apply-templates /></h4>	  
+	</xsl:otherwise>
+      </xsl:choose>
     </xsl:template>
     
     <xsl:template match="@urn">
