@@ -154,13 +154,6 @@ ul.menu li a {
     font-variant: normal;
 }
 
-.quote {
-    text-transform: none;
-    font-style: italic;
-    font-variant: normal;
-    font-size: 100%;
-}
-
 .person {
     text-transform: none;
     font-weight: bold;
@@ -193,27 +186,139 @@ ul.menu li a {
 
 .note {
     position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; 
+    display: inline;
 }
 
 .note .notetext {
-    visibility: hidden;
-    background-color: white;
-    color: grey;
-    box-shadow: 5px 5px 8px #CCC;
-    font-style: normal;
-    font-size: 80%;
-    padding: 10px 10px;
-    border-radius: 6px;
-    border: 1px dotted black;	
-    position: absolute;
-    top: 40px;
-    left: -40px;
-    z-index: 1;
+    display: none;
 }
 
-.note:hover .notetext {
-    visibility: visible;
+
+.note:hover > .notetext{
+    display: inline;
+    margin: 0 10px 0 10px;
+    color: grey;
+}
+
+.note:hover {
+    border-bottom: 1px solid grey;
+}
+
+.note:after {
+	font-family: 'Font Awesome 5 Free';
+	content: '\f126';
+	font-weight: 900;
+	white-space: nowrap;
+	vertical-align: super; 
+	font-size: 80%;
+	color: grey;
+}
+
+.allusion {
+    position: relative;
+    display: inline;
+    font-style: italic; 
+}
+
+.allusion .ref {
+    display: none;
+}
+
+.allusion:hover > .ref {
+    display: inline;
+    font-size: 90%;
+    margin: 0 10px 0 10px;
+    color: grey;
+}
+
+.allusion:hover {
+    border-bottom: 1px solid grey;
+}
+
+.quote {
+    position: relative;
+    display: inline;
+}
+
+.quote:after,.allusion:after{
+	font-family: 'Font Awesome 5 Free';
+	content: '\f647';
+	font-weight: 900;
+	white-space: nowrap;
+	vertical-align: super; 
+	font-size: 70%;
+	color: grey;
+}
+
+.quote .quoteref {
+    display: none;
+}
+
+.quote:hover > .quoteref {
+    display: inline;
+    font-size: 90%;
+    margin: 0 10px 0 10px;
+    color: grey;
+}
+
+.quote:hover {
+    border-bottom: 1px solid black;
+}
+
+.comment {
+    position: relative;
+    display: inline;
+}
+
+.comment:after{
+	font-family: 'Font Awesome 5 Free';
+	content: '*';
+	font-weight: 900;
+	white-space: nowrap;
+	vertical-align: super; 
+	font-size: 70%;
+	color: grey;
+}
+
+.comment .commenttext {
+    display: none;
+}
+
+.comment:hover > .commenttext {
+    display: inline;
+    font-size: 90%;
+    margin: 0 10px 0 10px;
+    color: grey;
+}
+
+
+.ribbon {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  text-align: right;
+}
+
+.ribbon span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 30px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  width: 175px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#F70505 0%, #8F0808 100%);
+  box-shadow: 0 3px 10px -5px black;
+  position: absolute;
+  top: 35px;
+  left: -35px;
 }
 

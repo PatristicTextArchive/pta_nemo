@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:t="http://www.tei-c.org/ns/1.0" exclude-result-prefixes="t">
-    
+<xsl:output encoding="utf-8"/>
+<xsl:param name="bible" select="'bible-quotations.xml'" />
+  
     <!-- glyphs -->
     <xsl:template name="split-refs">
         <xsl:param name="pText"/>
@@ -338,7 +340,7 @@
         </span>
     </xsl:template>
 
-    <xsl:template match="t:ref">
+   <xsl:template match="t:ref[not(parent::t:seg)]">
 	<xsl:apply-templates/>
       <xsl:if test="@target">
         <a class="urn">
@@ -349,42 +351,67 @@
             [*]
         </a>
         </xsl:if>
-	<xsl:if test="@cRef">
-	  <a class="urn">
-            <xsl:attribute name="href">
-                <xsl:value-of select="concat('https://www.bibelwissenschaft.de/bibelstelle/', substring-before(substring-after(@cRef,':'),':'),' ', translate(substring-after(substring-after(@cRef,':'),':'),':',','), '/', substring-before(@cRef,':'), '/')"/>
-            </xsl:attribute>
-	    <xsl:attribute name="target">_blank</xsl:attribute>
-            (<xsl:value-of select="concat(substring-before(substring-after(@cRef,':'),':'),' ',translate(substring-after(substring-after(@cRef,':'),':'),':',','))"/>)
-	</a>
+	<xsl:if test="@cRef"> <!-- biblical quotes -->
+	  <xsl:text> </xsl:text>
+	  <span class="quoteref">
+	    <xsl:value-of select="concat(substring-before(substring-after(@cRef,':'),':'),' ',translate(substring-after(substring-after(@cRef,':'),':'),':',','))"/>: <xsl:value-of select="document($bible)/references/reference[@loc=current()/@cRef]"/>
+	    <xsl:if test="contains(@cRef, 'NA')">
+	      (Text: SBLGNT)
+	    </xsl:if>
+	    <xsl:if test="contains(@cRef, 'LXX')">
+	      (Text: Rahlfs)
+	    </xsl:if>
+	  </span>
+	  <xsl:text> </xsl:text>
+	</xsl:if>
+   </xsl:template>
+
+      <xsl:template match="t:ref[parent::t:seg]">
+	<xsl:apply-templates/>
+	<xsl:if test="@cRef"> <!-- biblical quotes -->
+	  <xsl:text> </xsl:text>
+	  <span class="ref">
+	    <xsl:value-of select="concat(substring-before(substring-after(@cRef,':'),':'),' ',translate(substring-after(substring-after(@cRef,':'),':'),':',','))"/>: <xsl:value-of select="document($bible)/references/reference[@loc=current()/@cRef]"/>
+	    <xsl:if test="contains(@cRef, 'NA')">
+	      (Text: SBLGNT)
+	    </xsl:if>
+	    <xsl:if test="contains(@cRef, 'LXX')">
+	      (Text: Rahlfs)
+	    </xsl:if>
+	  </span>
+	  <xsl:text> </xsl:text>
 	</xsl:if>
     </xsl:template>
 
     <xsl:template match="t:cit">
-		<xsl:text> </xsl:text>
-		<xsl:if test="t:ref[following-sibling::t:quote]">
-			<xsl:apply-templates select="t:ref"/>
-		</xsl:if>
-		<xsl:apply-templates select="t:quote"/>
-		<xsl:if test="t:ref[preceding-sibling::t:quote]">
-			<xsl:apply-templates select="t:ref"/>
-		</xsl:if>
+      <xsl:text> </xsl:text>
+      		<span class="quote">
+		  <xsl:if test="t:ref[following-sibling::t:quote]">
+		    <xsl:apply-templates select="t:ref"/>
+		  </xsl:if>
+		  »<xsl:apply-templates select="t:quote"/>«
+		  <xsl:if test="t:ref[preceding-sibling::t:quote]">
+		    <xsl:apply-templates select="t:ref"/>
+		  </xsl:if>
+		</span>
     </xsl:template>
     
-	<xsl:template match="t:quote">
+	<xsl:template match="t:quote[t:ref]">
         <span class="quote">
-	<xsl:apply-templates/>
+	»<xsl:apply-templates/>«
 	</span>
     </xsl:template>
 
 	<xsl:template match="t:seg">
 		<xsl:choose>
-			<xsl:when test="(@type='allusion')"> <!-- Anspielung-->
-				<xsl:apply-templates/>
+		  <xsl:when test="(@type='allusion')"> <!-- Anspielung-->
+		    <span class="allusion">
+		      <xsl:apply-templates/>
+		    </span>
 			</xsl:when>
 			<xsl:when test="(@type='insertion')"> <!-- Einschub in Zitat-->
 				<span class="insertion">
-				<xsl:apply-templates/>
+				« <xsl:apply-templates/> »
 				</span>
 			</xsl:when>
 			<xsl:when test="(@type='fq')"> <!--false quote-->
