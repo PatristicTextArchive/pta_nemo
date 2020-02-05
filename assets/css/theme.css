@@ -63,6 +63,10 @@
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
+.fas-angle-double-down:before {
+	content: '\f103';
+}
+
 .fas-download:before {
 	content: '\f019';
 }
