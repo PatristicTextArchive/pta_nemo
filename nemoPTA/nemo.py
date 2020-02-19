@@ -16,6 +16,16 @@ class NemoPTA(Nemo):
     ]
     CACHED = Nemo.CACHED + ["r_full_text"]
 
+    def get_title_from_file(self, text):
+        """
+        Get additional metadata from xml
+        """
+        xss = etree.fromstring(str(text))
+        ns = {None: 'http://www.tei-c.org/ns/1.0'}
+        titlef = xss.findtext(".//title", namespaces=ns)
+
+        return titlef
+    
     def get_add_metadata(self, text):
         """
         Get additional metadata from xml
@@ -162,6 +172,7 @@ class NemoPTA(Nemo):
                 raise UnknownCollection("This work has no default edition")
             return redirect(url_for(".r_full_text", objectId=str(editions[0].id)))
         text = self.get_passage(objectId=objectId, subreference=None)
+        titlef = self.get_title_from_file(text)
         idnos = self.get_add_metadata(text)
         licence = self.get_licence(text)
         banner = self.get_edition_type(text)
@@ -182,7 +193,7 @@ class NemoPTA(Nemo):
                     "model": str(collection.model),
                     "type": str(collection.type),
                     "author": text.get_creator(lang),
-                    "title": text.get_title(lang),
+                    "title": titlef,
                     "download": download,
                     "witnesses": witnesses,
                     "idnos": idnos,
@@ -221,6 +232,7 @@ class NemoPTA(Nemo):
             return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
         text = self.get_passage(objectId=objectId, subreference=subreference)
         full_text = self.get_passage(objectId=objectId, subreference=None)
+        titlef = self.get_title_from_file(full_text)
         idnos = self.get_add_metadata(full_text)
         licence = self.get_licence(full_text)
         banner = self.get_edition_type(full_text)
@@ -242,7 +254,7 @@ class NemoPTA(Nemo):
                     "model": str(collection.model),
                     "type": str(collection.type),
                     "author": text.get_creator(lang),
-                    "title": text.get_title(lang),
+                    "title": titlef,
                     "download": download,
                     "witnesses": witnesses,
                     "idnos": idnos,
