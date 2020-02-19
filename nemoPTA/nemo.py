@@ -133,7 +133,6 @@ class NemoPTA(Nemo):
             witlist = []
             #link = wit.attrib["facs"]
             witness = ":".join(wit.itertext()).split(":")
-            print(witness)
             witlist.append(witness[0])
             witlist.append(witness[1])
             witlist.append(witness[3])
