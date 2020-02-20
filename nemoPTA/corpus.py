@@ -1,3 +1,5 @@
+import os
+import sys
 from MyCapytain.resources.prototypes.cts.inventory import CtsTextInventoryCollection, CtsTextInventoryMetadata
 from MyCapytain.resolvers.utils import CollectionDispatcher
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
@@ -27,8 +29,11 @@ def organize_my_gcs(collection, path=None, **kwargs):
     return False
 
 
+d = "./corpora"
 
-# Parsing the data
-resolver = NautilusCTSResolver(["corpora/pta_data","corpora/GCS"], dispatcher=organizer)
-resolver.parse()
+resolver = NautilusCTSResolver(
+    [os.path.join(d,o) for o in os.listdir(d) if os.path.isdir(os.path.join(d,o))],
+    dispatcher=organizer,
+    cache=None
+)
 

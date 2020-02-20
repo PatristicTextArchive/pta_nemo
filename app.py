@@ -1,6 +1,8 @@
 from flask import Flask
+from MyCapytain.common.reference import URN
+from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from capitains_nautilus.flask_ext import FlaskNautilus
-from nemoPTA.corpus import resolver
+from nemoPTA.corpus import organizer,resolver
 from nemoPTA.nemo import NemoPTA
 
 def get_citation_scheme(text):
@@ -29,10 +31,19 @@ def generic_chunker(text, getreffs):
 
     return reffs
 
-flask_app = Flask("Flask Application for Nemo")
+flask_app = Flask("Nautilus")
+
+nautilus = FlaskNautilus(
+    app=flask_app,
+    prefix="/api",
+    name="nautilus",
+    resolver=resolver,
+    flask_caching=None
+)
+
+nautilus_api = FlaskNautilus(prefix="/api", app=flask_app, resolver=resolver)
 
 
-nautilus_api = FlaskNautilus(name="Nautilus", prefix="/api", app=flask_app, resolver=resolver)
 nemo = NemoPTA(
     name="InstanceNemo",
     app=flask_app,
