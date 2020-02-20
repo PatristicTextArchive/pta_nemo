@@ -477,6 +477,11 @@
 				<xsl:apply-templates/>
 				<xsl:text> </xsl:text>
 			</xsl:when>
+			<xsl:when test="@n"> <!-- subsection type segmentation-->
+				<xsl:text> </xsl:text>
+				<xsl:value-of select="@n"/><xsl:text> </xsl:text><xsl:apply-templates/>
+				<xsl:text> </xsl:text>
+			</xsl:when>
 			<xsl:otherwise>
 				<xsl:text> </xsl:text>
 				<xsl:apply-templates/>
