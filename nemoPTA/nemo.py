@@ -124,9 +124,12 @@ class NemoPTA(Nemo):
         Get link for xml file in github repository
         """
         download_filename = collection.id.split(":")[3]
-        if collection.id.split(":")[2] == "pta": # provide link only for pta
+        if collection.id.split(":")[2] == "pta": # provide link for pta
             download_path = download_filename.split(".")[0]+"/"+download_filename.split(".")[1]
-            download = [download_path,download_filename]
+            download = ["pta_data",download_path,download_filename]
+        elif collection.id.split(":")[2] == "greekLit":
+            download_path = download_filename.split(".")[0]+"/"+download_filename.split(".")[1]
+            download = ["GCS",download_path,download_filename]
         else:
             download = []
         return download
