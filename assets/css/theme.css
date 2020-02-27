@@ -183,6 +183,11 @@ ul.menu li a {
     font-weight: bold;
 }
 
+.lb {
+    white-space: nowrap;
+    color:grey;
+}
+
 .pb {
     white-space: nowrap;
     vertical-align: super; 

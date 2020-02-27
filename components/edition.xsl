@@ -168,7 +168,19 @@
             <xsl:attribute name="class">
                 <xsl:value-of select="@subtype" />
             </xsl:attribute>
-                  <span class='number'><xsl:apply-templates select="@n" /></span>
+            <xsl:if test="ancestor::t:div[not(@type='transcription')]">
+	      <span class='number'>
+		<xsl:if test="@subtype='book'">
+		<xsl:number format="I" value="@n" />
+	      </xsl:if>
+	      <xsl:if test="@subtype='chapter'">
+		<xsl:text>ch. </xsl:text><xsl:number value="@n" />
+	      </xsl:if>
+	      <xsl:if test="@subtype='section'">
+		<xsl:text>§ </xsl:text><xsl:number value="@n" />
+	      </xsl:if>
+	      </span>
+	    </xsl:if>
             <xsl:apply-templates select="@urn" />
             <xsl:if test="./@sameAs">
                <xsl:element name="p">
@@ -233,6 +245,7 @@
       </xsl:if>
       <xsl:value-of select="@n"/>
       </span>
+      <xsl:if test="ancestor::t:div[@type='transcription']"><br/></xsl:if>
     </xsl:template>
 
     <xsl:template match="t:cb">
@@ -241,6 +254,7 @@
                 <em><xsl:value-of select="@edRef"/></em>
       </xsl:if>
       </span>
+      <xsl:if test="ancestor::t:div[@type='transcription']"><br/></xsl:if>
     </xsl:template>
 
     <xsl:template match="t:ab/text()">
@@ -256,7 +270,12 @@
     </xsl:template>
     
     
-    <xsl:template match="t:lb" />
+    <xsl:template match="t:lb">
+      <xsl:if test="@break='no'">
+	<span class="lb">-</span>
+      </xsl:if>
+      <br/>
+    </xsl:template>
     
     
     <xsl:template match="t:ex">
@@ -344,7 +363,28 @@
       <!-- empty -->
     </xsl:template>
 
-    <xsl:template match="t:app">
+    <xsl:template match="t:app[@type='witnesses']">
+      <span class="note">
+	<xsl:value-of select="./t:rdg"/>
+	<xsl:choose>
+	  <xsl:when test=".//t:witStart">
+	    <span class="notetext">
+	      <xsl:text>inc. </xsl:text><xsl:value-of select="translate(./t:rdg/@resp|./t:rdg/@wit,'#','')"/>
+	    </span>
+	  </xsl:when>
+	  <xsl:when test=".//t:witEnd">
+	    <span class="notetext">
+	      <xsl:text>des. </xsl:text><xsl:value-of select="translate(./t:rdg/@resp|./t:rdg/@wit,'#','')"/>
+	    </span>
+	  </xsl:when>
+	  <xsl:otherwise>
+	  </xsl:otherwise>
+	</xsl:choose>
+      </span>
+      <xsl:text> </xsl:text>
+    </xsl:template>
+    
+    <xsl:template match="t:app[@type='textcritical']">
       <span class="note">
 	<xsl:choose>
 	  <xsl:when test="t:lem=''">
@@ -522,7 +562,7 @@
 	    <xsl:attribute name="target">
 	      _blank
 	    </xsl:attribute>
-            <xsl:value-of select="." />
+            <xsl:apply-templates/>
         </a>
 	</span>
     </xsl:template>
