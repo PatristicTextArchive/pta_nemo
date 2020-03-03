@@ -4,7 +4,10 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>Digital text of Severianus Gabalensis, De fide et lege naturae</title>
+                <title xml:lang="la">De fide et lege naturae</title>
+                <author>
+                    <persName key="#pta0001">Severianus Gabalensis</persName>
+                </author>
                 <respStmt>
                     <persName xml:id="SV">Sever J. Voicu</persName>
                     <resp>Transcription of the text; correction and standardisation of spelling, accents, and punctuation to modern editorial standards</resp>
@@ -26,6 +29,7 @@
                 <idno type="BHG"/>
                 <idno type="Aldama">399</idno>
                 <idno type="Pinakes-Oeuvre">2683</idno>
+                <idno type="ClaCla">6ADE02D33A984173A593EA58647E6EE4</idno>
             </publicationStmt>
             <sourceDesc>
                 <bibl>
@@ -234,7 +238,7 @@
                         <quote>Τῶν δὲ δικαίων πολλαὶ μὲν αἱ θλίψεις, ἐκ δὲ πασῶν αὐτῶν ῥύσεται αὐτοὺς ὁ κύριος.<ref decls="#biblical" cRef="LXX:Ps:33:20"/>
                         </quote>
                         Ταῦτα δέ τις ἀκούων μὴ ἑαυτοῦ ἀπογινωσκέτω, μηδὲ λεγέτω· Εἰ τοίνυν ὡς ἁμαρτωλὸς μαστίζομαι, ἐλπίδα μὴ ἔχων, ἄκαρπός μοι ἐστιν ἡ παιδεία. Ἁμαρτωλὸν γὰρ ἐκάλεσε νῦν ἡ γραφή, οὐ τὸν πάντη τῆς εὐσεβείας ἀλλότριον, ἀλλὰ τὸν θλιβόμενον, τὸν εὐσεβείας μετέχοντα, πράγμασι δὲ ἀνθρωπίνοις ὀλισθαίνοντα. Ἐπεὶ ὅτι ἁμαρτωλοὺς ἐλεεῖ ὁ θεός, μεστὴ πᾶσα γραφὴ τῶν ἐνεχύρων τῆς τοῦ θεοῦ φιλανθρωπίας. Φησὶ γάρ·
-                        <quote>Ζῶ ἐγώ, λέγει κύριος, οὐ βούλομαι τὸν θάνατον τοῦ ἁμαρτωλοῦ, ὡς τὸ ἐπιστρέψαι καὶ ζῆν αὐτόν.<ref decls="#biblical" cRef="LXX:Hes:33:11"/>
+                        <quote>Ζῶ ἐγώ, λέγει κύριος, οὐ βούλομαι τὸν θάνατον τοῦ ἁμαρτωλοῦ, ὡς τὸ ἐπιστρέψαι καὶ ζῆν αὐτόν.<ref decls="#biblical" cRef="LXX:Ez:33:11"/>
                         </quote>
                         Ὄμνυσιν ὁ θεός, οὐχ ὡς ἑαυτῷ ἀπιστῶν, ἀλλὰ τὴν ἡμετέραν ἀπιστίαν εἰς πίστιν ἐκβιαζόμενος. Λεγέτω τοίνυν πᾶς ἅνθρωπος εἰς θλίψεις ἐξεταζόμενος·
                         <quote>Δίκαιος εἶ, κύριε, καὶ εὐθεῖς αἱ κρίσεις σου.<ref decls="#biblical" cRef="LXX:Ps:118:137"/>

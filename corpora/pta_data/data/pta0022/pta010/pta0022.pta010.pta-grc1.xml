@@ -99,8 +99,14 @@
         </revisionDesc>
     </teiHeader>
     <text>
-        <body>
-            <div type="edition" xml:lang="grc" n="urn:cts:pta:pta0022.pta010.pta-grc1">
+      <body>
+	<div type="praefatio" xml:lang="deu">
+	  <div n="1">
+	    <head>1. Abschnitt</head>
+	    <p>In dem in den Handschriften als Apologia ad Constantium überlieferten Text scheinen zwei ursprünglich voneinander unabhängige Schriften an den Kaiser redaktionell oder durch mechanischen Verlust vereinigt worden zu sein. Auch bei den zitierten bzw. ausgefallenen Urkunden (19,6; 23; 30; 31) ist redaktionelle Tätigkeit festzustellen. Die erste dieser fragmentarischen Schriften reicht von Kap. 1–26, die zweite von Kap. 27–35. Beide zeigen enge literarische und argumentative Beziehungen zur Apologia secunda und zur Historia Arianorum. In der ersten Schrift verteidigt sich Athanasius gegen vier vor dem Kaiser gegen ihn erhobene Anklagen: 1. Aufhetzung des Constans gegen seinen Bruder Constantius (2–5); 2. Konspiration mit dem Usurpator Magnentius (6–13); 3. Vorzeitige Nutzung der von Constantius gestifteten „großen Kirche“ in Alexandrien (14–18); 4. Weigerung des Athanasius, der Vorladung an den Hof des Constantius Folge zu leisten (19–26). Diese Schrift gehört mit großer Wahrscheinlichkeit in den Zusammenhang der Pläne einer Gesandtschaft der Alexandriner an den Kaiser (vgl. h.Ar. 81,5) bald nach der Flucht des Athanasius am 8./9. Februar 356; sie wurde nach 26,6 außerhalb Alexandriens abgefaßt. In der zweiten Schrift begründet Athanasius in Parallele zur Apologia de fuga, warum er nach seiner Flucht aus Furcht um sein Leben der Vorladung des Constantius noch immer nicht Folge geleistet hat: 1. Wegen der Verbannung seiner abendländischen Anhänger nach der Synode von Mailand in den Jahren 355 und 356 (27,1–3); 2. wegen der Verfolgung der Bischöfe Ägyptens und Libyens im Mai 357 (27,4–29,2); 3. wegen des Briefes des Constantius mit der Aufforderung, Frumentius von Axum auszuliefern und nach Athanasius zu fahnden (29,3–4). Diese Schrift scheint nach 35,1f. eine für Athanasius günstigere Lage vorauszusetzen und gehört daher eventuell in die Zeit zwischen der Vertreibung Georgs aus Alexandrien am 2. Oktober 358 und Weihnachten 358, als der Dux Sebastianus die Anhänger des Athanasius erneut aus den Kirchen vertrieb (vgl. h.Ath. 2,4). </p>
+	  </div>
+	</div>
+        <div type="edition" xml:lang="grc" n="urn:cts:pta:pta0022.pta010.pta-grc1">
                 <head>
                     <title>Τοῦ αὐτοῦ ἀπολογία πρὸς τὸν βασιλέα Κωνστάντιον</title>
                 </head>

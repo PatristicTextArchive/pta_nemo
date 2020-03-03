@@ -2,15 +2,15 @@
 <ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts" groupUrn="urn:cts:pta:pta0100" urn="urn:cts:pta:pta0100.pta001" xml:lang="grc">
   <ti:title xml:lang="lat">Dokumente zur Geschichte des arianischen Streites (Dok. 1)</ti:title>
       <ti:edition workUrn="urn:cts:pta:pta0100.pta001" urn="urn:cts:pta:pta0100.pta001.pta-grc1">
-        <ti:label xml:lang="mul">Dok. 1</ti:label>
+        <ti:label xml:lang="mul">Dok. 1: Theologische Erklärung alexandrinischer Kleriker an Alexander von Alexandrien (Urk. 6)</ti:label>
         <ti:description xml:lang="mul">
-            Athanasius Werke III 3
+            Hans-Georg Opitz, Band 3 / 1. Teil: Urkunden zur Geschichte des arianischen Streites. Lieferung 1-2, Berlin/Leipzig 1934/35, 12–13.
         </ti:description>
     </ti:edition>
     <ti:translation workUrn="urn:cts:pta:pta0100.pta001" urn="urn:cts:pta:pta0100.pta001.pta-deu1" xml:lang="deu">
-        <ti:label xml:lang="mul">Dok. 1</ti:label>
+        <ti:label xml:lang="mul">Dok. 1: Theologische Erklärung alexandrinischer Kleriker an Alexander von Alexandrien (Urk. 6)</ti:label>
         <ti:description xml:lang="mul">
-            Athanasius Werke III 3
+            H.C. Brennecke/U. Heil/A. v. Stockhausen/A. Wintjes, Athanasius Werke. Band 3 / 1. Teil: Dokumente zur Geschichte des arianischen Streites. Lieferung 3: Bis zur Ekthesis makrostichos, Berlin/New York 2007, 77.
         </ti:description>
     </ti:translation>
 </ti:work>
