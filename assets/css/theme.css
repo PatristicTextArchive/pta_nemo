@@ -152,7 +152,7 @@
 }
 
 .navbar .navbar-logo {
-    height: 200px; 
+    height: 200px;
     transition: 0.5s ease;
 }
 
@@ -164,12 +164,34 @@ ul.menu li a {
 
 .person {
     text-transform: none;
-    font-weight: bold;
+    font-style: normal;
 }
 
 .place {
     text-transform: none;
     font-style: normal;
+}
+
+.initial {
+    text-transform: none;
+    font-weight: bold;
+}
+
+.overline {
+    border-top: 1px solid grey;
+}
+
+.unclear {
+    text-emphasis-style: dot;
+    text-emphasis-position: under right;
+}
+
+.erased {
+    color:grey;
+}
+
+.strikethrough {
+    text-decoration:line-through;
 }
 
 .insertion {
@@ -190,7 +212,7 @@ ul.menu li a {
 
 .pb {
     white-space: nowrap;
-    vertical-align: super; 
+    vertical-align: super;
     font-size: 80%;
     color:grey;
 }
@@ -222,7 +244,7 @@ ul.menu li a {
 	content: '\f126';
 	font-weight: 900;
 	white-space: nowrap;
-	vertical-align: super; 
+	vertical-align: super;
 	font-size: 80%;
 	color: grey;
 }
@@ -230,7 +252,7 @@ ul.menu li a {
 .allusion {
     position: relative;
     display: inline;
-    font-style: italic; 
+    font-style: italic;
 }
 
 .allusion .ref {
@@ -258,7 +280,7 @@ ul.menu li a {
 	content: '\f647';
 	font-weight: 900;
 	white-space: nowrap;
-	vertical-align: super; 
+	vertical-align: super;
 	font-size: 70%;
 	color: grey;
 }
@@ -288,7 +310,7 @@ ul.menu li a {
 	content: '*';
 	font-weight: 900;
 	white-space: nowrap;
-	vertical-align: super; 
+	vertical-align: super;
 	font-size: 70%;
 	color: grey;
 }
@@ -334,4 +356,3 @@ ul.menu li a {
   top: 35px;
   left: -35px;
 }
-
