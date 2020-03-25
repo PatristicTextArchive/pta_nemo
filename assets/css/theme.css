@@ -67,6 +67,15 @@
 	content: '\f103';
 }
 
+.fas-comment:before {
+	content: '\f075';
+  font-weight: 900;
+  white-space: nowrap;
+  vertical-align: super;
+  font-size: 80%;
+  color: grey;
+}
+
 .fas-download:before {
 	content: '\f019';
 }
@@ -114,7 +123,11 @@
 }
 
 .praefatio {
-    font-size: 70%;
+    font-size: 90%;
+}
+
+.bibl {
+  font-style: italic;
 }
 
 .jumbotron {
@@ -307,11 +320,11 @@ ul.menu li a {
 
 .comment:after{
 	font-family: 'Font Awesome 5 Free';
-	content: '*';
+	content: '\f075';
 	font-weight: 900;
 	white-space: nowrap;
 	vertical-align: super;
-	font-size: 70%;
+	font-size: 80%;
 	color: grey;
 }
 
@@ -326,6 +339,18 @@ ul.menu li a {
     color: grey;
 }
 
+.footnoteText {
+  display: none;
+  color: grey;
+}
+
+.footnote:focus + .footnoteText {
+  display: block;
+}
+
+.footnoteText:active {
+  display: block;
+}
 
 .ribbon {
   position: absolute;
