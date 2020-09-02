@@ -1,4 +1,4 @@
-werkzeug==0.14.1
+werkzeug==0.15.3
 MyCapytain==2.0.9
 flask-nemo==1.0.3
 capitains_nautilus==1.0.3
